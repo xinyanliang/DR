@@ -49,7 +49,8 @@ parallel_model.fit_generator(
     epochs=epochs,
     validation_data=test_generator,
     validation_steps=nb_test_samples // batch_size,
-    class_weight= {0:0.73,1:0.07,2:0.15,3:0.025,4:0.02},
-    callbacks=[modelcheck])
+    class_weight= {0:0.73,1:0.07,2:0.15,3:0.025,4:0.02}
+    #callbacks=[modelcheck]
+    )
 
 model.save_weights('model.h5')
