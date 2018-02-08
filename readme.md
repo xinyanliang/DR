@@ -12,15 +12,12 @@
  依次运行下面的命令。注：这三个运行顺序，必须按如下所示，且必须一个执行完后，在运行下一个。
  ```
  python run_memory128.py
- 
  ```
  ```
  python run_memory256.py
- 
  ```
  ```
  python run_memory512.py
- 
  ```
   
 4. run value2label.py 得到 kappa,accuracy,conf_matrix 三个指标
