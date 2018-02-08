@@ -22,5 +22,5 @@ for img_s in tqdm(img_size):
     if not os.path.exists(des_test):
         for i in range(5):
             subprocess.call(['mkdir','-p',os.path.join(des_test,str(i))])
-    resize_im(src_train,des_train,im_size=(i,i))
-    resize_im(src_test,des_test,im_size=(i,i))
+    resize_im(src_train,des_train,im_size=(img_s,img_s))
+    resize_im(src_test,des_test,im_size=(img_s,img_s))
