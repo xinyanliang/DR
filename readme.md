@@ -3,12 +3,12 @@
 
 ### 训练过程
 
-#### 1. 将训练数据放到data/train目录下，测试数据data/test目录下
-#### 2. run preimage.py 将图片统一处理为512，512，可添加自己需要的图片预处理功能
+1. 将训练数据放到data/train目录下，测试数据data/test目录下
+2. run preimage.py 将图片统一处理为512，512，可添加自己需要的图片预处理功能
  ```
  python preimage.py
  ```
-#### 3. run_memory128.py的训练权重，用作run_memory256.py的初始权重。run_memory256.py的训练好的权重用作run_memory512.py的初始权重。
+3. run_memory128.py的训练权重，用作run_memory256.py的初始权重。run_memory256.py的训练好的权重用作run_memory512.py的初始权重。
  依次运行下面的命令。注：这三个运行顺序，必须按如下所示，且必须一个执行完后，在运行下一个。
  ```
  python run_memory128.py
@@ -23,7 +23,7 @@
  
  ```
   
-#### 4. run value2label.py 得到 kappa,accuracy,conf_matrix 三个指标
+4. run value2label.py 得到 kappa,accuracy,conf_matrix 三个指标
  ```
  python value2label.py
  ```
