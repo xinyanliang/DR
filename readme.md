@@ -5,9 +5,27 @@
 
  1. 将训练数据放到data/train目录下，测试数据data/test目录下
  2. run preimage.py 将图片统一处理为512，512，可添加自己需要的图片预处理功能
- 3. run run_memory.py 将数据一次导入到内存后训练模型，模型保存为model.h5
-  (run.py从数据文件中读数据)
+ ```
+ python preimage.py
+ ```
+ 3. run run_memory128.py 将数据一次导入到内存后训练模型，模型保存为model_128.h5
+ ```
+ python run_memory128
+ 
+ ```
+  ```
+ python run_memory256
+ 
+ ```
+  ```
+ python run_memory512
+ 
+ ```
+  
  4. run value2label.py 得到 kappa,accuracy,conf_matrix 三个指标
+ ```
+ python value2label.py
+ ```
 
 ### To do：
 
