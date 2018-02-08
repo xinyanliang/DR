@@ -7,8 +7,8 @@ import tensorflow as tf
 from keras.utils import multi_gpu_model,to_categorical
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "7"
-n_gpu = 2
-base_path = os.path.join('data','img_128')
+n_gpu = 1
+base_path = os.path.join('data','img128')
 
 # loss = 'categorical_crossentropy'
 loss = 'mse'
