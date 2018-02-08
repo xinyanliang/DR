@@ -8,17 +8,18 @@
  ```
  python preimage.py
  ```
- 3. run run_memory128.py 将数据一次导入到内存后训练模型，模型保存为model_128.h5
+ 3. run_memory128.py的训练权重，用作run_memory256.py的初始权重。run_memory256.py的训练好的权重用作run_memory512.py的初始权重。
+ 依次运行下面的命令。注：这三个运行顺序，必须按如下所示，且必须一个执行完后，在运行下一个。
  ```
- python run_memory128
+ python run_memory128.py
  
  ```
-  ```
- python run_memory256
+ ```
+ python run_memory256.py
  
  ```
-  ```
- python run_memory512
+ ```
+ python run_memory512.py
  
  ```
   
