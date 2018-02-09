@@ -9,7 +9,7 @@ from keras.utils import multi_gpu_model,to_categorical
 
 from model import  Net5
 from load_DR import DR
-from train_callback import scheduler128
+from train_callback import scheduler512
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "7"
 n_gpu = 1
