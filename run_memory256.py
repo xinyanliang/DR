@@ -1,12 +1,15 @@
-from model import  Net5
-from train_callback import scheduler256
-from load_DR import DR
+from sklearn.utils import class_weight
+import numpy as np
 import os
+
+import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint,LearningRateScheduler,CSVLogger
-import tensorflow as tf
 from keras.utils import multi_gpu_model,to_categorical
-from keras.models import load_model
+
+from model import  Net5
+from load_DR import DR
+from train_callback import scheduler128
 
 
 
@@ -22,10 +25,11 @@ batch_size = 128
 im_size = (256,256,3)
 im_s = (256,256)
 output_shape = 1
-class_weight = {0:0.73,1:0.07,2:0.15,3:0.025,4:0.02}
-
 
 (train_x,train_y),(test_x,test_y) = DR(base_path)
+cla_weight = class_weight.compute_class_weight('balanced', np.unique(train_y), train_y)
+class_idx = np.unique(train_y)
+class_weight = {i: cla_weight[i] for i in class_idx}
 if loss is not 'mse':
     train_y = to_categorical(train_y,5)
     test_y = to_categorical(test_y,5)
