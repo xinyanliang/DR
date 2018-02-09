@@ -18,13 +18,15 @@ def load_data(fp):
     return ims,labels
 
 
-def DR(base_train=os.path.join('data', 'train'),
-       base_test = os.path.join('data', 'test')):
+def DR(base=os.path.join('data')):
+    base_train = os.path.join(base, 'train')
+    base_test = os.path.join(base, 'test')
     train_x,train_y = load_data(base_train)
     test_x, test_y = load_data(base_test)
 
     return (train_x,train_y),(test_x,test_y)
 
-def DR_test(base_test = os.path.join('data', 'test')):
+def DR_test(base_test = os.path.join('data')):
+    base_test = os.path.join(base_test, 'test')
     test_x, test_y = load_data(base_test)
     return (test_x,test_y)
