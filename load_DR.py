@@ -22,7 +22,7 @@ def DR(base=os.path.join('data')):
     base_test = os.path.join(base, 'test')
     train_x,train_y = load_data(base_train)
     test_x, test_y = load_data(base_test)
-    print('Loading data down!!!')
+    print('Loading data down!!!!')
 
     return (train_x,train_y),(test_x,test_y)
 
