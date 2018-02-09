@@ -28,7 +28,44 @@
 ### To do：
 
 - [x] 将原始图片处理三种尺度(128,256,512)的图像
+- [x] 实时的数据增强，且解决了加入数据增强，gpu使用率低的问题
+- [ ] 初期的训练过程 (coming)
 - [ ] 更多数据预处理,合适的归一化方法
+
+### Q&A
+
+
+> __Q__: 加入数据增强后，训练速度变慢。表现为，通过nvidia-smi -l 观察gpu使用情况，发现gpu使用率变化幅度太大，有时gpu使用率居然为0 哎...
+
+> __A__: fit_generator中，默认不适用多进程，且只是用一个cpu core。我们只需自己手动设置这两个参数即可。
+
+
+```
+model.fit_generator(
+    use_multiprocessing=True, #默认False
+    workers=cpus) #默认1
+```
+附：
+
+总核数 = 物理CPU个数 X 每颗物理CPU的核数 
+总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
+
+```
+ #查看物理CPU个数  
+cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
+```
+
+```
+# 查看每个物理CPU中core的个数(即核数)
+cat /proc/cpuinfo| grep "cpu cores"| uniq
+```
+
+```
+# 查看逻辑CPU的个数
+cat /proc/cpuinfo| grep "processor"| wc -l
+```
+
+
 
 ### Link
 
