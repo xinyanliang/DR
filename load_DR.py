@@ -8,7 +8,6 @@ def load_data(fp):
     labels = []
     for root,dirs, names in tqdm(os.walk(fp)):
         for name in tqdm(names):
-            print(root.split('/')[-1])
             im_name = os.path.join(root,name)
             im = cv2.imread(im_name)
             ims.append(im)
@@ -23,6 +22,7 @@ def DR(base=os.path.join('data')):
     base_test = os.path.join(base, 'test')
     train_x,train_y = load_data(base_train)
     test_x, test_y = load_data(base_test)
+    print('Loading data down!!!')
 
     return (train_x,train_y),(test_x,test_y)
 
