@@ -30,6 +30,19 @@
 - [x] 将原始图片处理三种尺度(128,256,512)的图像
 - [ ] 更多数据预处理,合适的归一化方法
 
+### Q&A
+
+1. __Q__:加入数据增强后，训练速度变慢。表现为，通过nvidia-smi -l 观察gpu使用情况，发现gpu使用率变化幅度太大，有时光谱使用率居然为0 哎...
+
+
+__A__: fit_generator中，默认不适用多进程，且只是用一个cpu core。我们只需自己手动设置这两个参数即可。
+
+```
+model.fit_generator(
+    use_multiprocessing=True, #默认False
+    workers=cpus) #默认1
+```
+
 ### Link
 
 - [Keras数据增强](https://absentm.github.io/2016/06/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84Data-Augmentation%E6%96%B9%E6%B3%95%E5%92%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/)
