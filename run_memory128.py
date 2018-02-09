@@ -9,6 +9,7 @@ from keras.utils import multi_gpu_model,to_categorical
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "7"
 n_gpu = 1
+cpus = 50
 base_path = os.path.join('data','img128')
 
 # loss = 'categorical_crossentropy'
@@ -18,6 +19,7 @@ batch_size = 128
 im_size = (128,128,3)
 im_s = (128,128)
 output_shape = 1
+class_weight = {0:0.73,1:0.07,2:0.15,3:0.025,4:0.02}
 
 
 (train_x,train_y),(test_x,test_y) = DR(base_path)
@@ -65,7 +67,10 @@ parallel_model.fit_generator(
     epochs=epochs,
     validation_data=test_generator,
     validation_steps=nb_test_samples // batch_size,
-    class_weight= {0:0.73,1:0.07,2:0.15,3:0.025,4:0.02},
-    callbacks=[modelcheck,lr_scheduler,csv])
+    class_weight= class_weight,
+    callbacks=[modelcheck,lr_scheduler,csv],
+    use_multiprocessing=True,
+    workers=cpus
+)
 
 model.save_weights('model_128.h5')
