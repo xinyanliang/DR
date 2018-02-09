@@ -14,7 +14,7 @@
  python run_memory128.py
  ```
  ```
- python run_memory256.py
+ python run_memory256.py (110s)
  ```
  ```
  python run_memory512.py
