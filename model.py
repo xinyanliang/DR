@@ -1,4 +1,4 @@
-from keras.layers import Input,Dense,LeakyReLU
+from keras.layers import Input,Dense,LeakyReLU,BatchNormalization,Activation
 from keras.layers.convolutional import Conv2D
 from keras.layers.pooling import MaxPool2D,GlobalAvgPool2D
 from keras.models import Model
@@ -16,8 +16,11 @@ def block(model,filters = [32,32],kernel_sizes = [5,3],
                        strides=(strides[i],strides[i]),
                        kernel_regularizer=decay_L2,
                        padding='same',
-                       kernel_initializer='he_normal',
-                       activation='relu')(model)
+                       kernel_initializer='he_normal'
+                       # activation='relu'
+                       )(model)
+        model =  BatchNormalization()(model)
+        model = Activation('relu')(model)
         # model = LeakyReLU(alpha=0.01)(model)
     if max:
         model = MaxPool2D(pool_size=(3, 3), strides=(2, 2))(model)
