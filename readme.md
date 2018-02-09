@@ -11,10 +11,14 @@
 3. run_memory128.py的训练权重，用作run_memory256.py的初始权重。run_memory256.py的训练好的权重用作run_memory512.py的初始权重。
  依次运行下面的命令。注：这三个运行顺序，必须按如下所示，且必须一个执行完后，在运行下一个。
  ```
- python run_memory128.py
+ python run_memory128.py   #(30s/epoch)
  ```
+- 参数量：5,521,633
+- class_weight = {0: 0.272800669521981, 1: 2.851981471950592, 2: 1.3212684787792084, 3: 8.007803468208092, 4: 9.807787610619469}
+
+ 
  ```
- python run_memory256.py (110s)
+ python run_memory256.py #(110s/epoch)
  ```
  ```
  python run_memory512.py
@@ -29,6 +33,7 @@
 
 - [x] 将原始图片处理三种尺度(128,256,512)的图像
 - [x] 实时的数据增强，且解决了加入数据增强，gpu使用率低的问题
+- [x] 通过sklearn.utils.class_weight自动计算每个类别的比重，用于解决非平衡问题
 - [ ] 初期的训练过程 (coming)
 - [ ] 更多数据预处理,合适的归一化方法
 
