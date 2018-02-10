@@ -18,7 +18,7 @@
 
  
  ```
- python run_memory256.py #(110s/epoch)
+ python run_memory256.py #(110s/epoch  2gpu30线程)
  ```
  ```
  python run_memory512.py
