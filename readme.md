@@ -23,7 +23,15 @@
  ```
  python run_memory512.py
  ```
-  
+ 
+ ```
+ python IncepNet.py #(720s)
+ ```
+ 
+1:  1.4036 - acc: 0.3075 - val_loss: 1.2049 - val_acc: 0.4612
+
+64: 0.1433 - acc: 0.8907 - val_loss: 1.2001 - val_acc: 0.7292
+
 4. run value2label.py 得到 kappa,accuracy,conf_matrix 三个指标
  ```
  python value2label.py
