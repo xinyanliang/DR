@@ -18,12 +18,20 @@
 
  
  ```
- python run_memory256.py #(110s/epoch)
+ python run_memory256.py #(110s/epoch  2gpu30线程)
  ```
  ```
  python run_memory512.py
  ```
-  
+ 
+ ```
+ python IncepNet.py #(720s)
+ ```
+ 
+1:  1.4036 - acc: 0.3075 - val_loss: 1.2049 - val_acc: 0.4612
+
+64: 0.1433 - acc: 0.8907 - val_loss: 1.2001 - val_acc: 0.7292
+
 4. run value2label.py 得到 kappa,accuracy,conf_matrix 三个指标
  ```
  python value2label.py
@@ -76,4 +84,5 @@ cat /proc/cpuinfo| grep "processor"| wc -l
 
 - [Keras数据增强](https://absentm.github.io/2016/06/14/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84Data-Augmentation%E6%96%B9%E6%B3%95%E5%92%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/)
 - [python实现的数据增强](https://github.com/aleju/imgaug)
+- [认识非平衡问题](https://morvanzhou.github.io/tutorials/machine-learning/ML-intro/3-07-imbalanced-data/)
 
